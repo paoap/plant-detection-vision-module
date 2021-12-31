@@ -3,18 +3,13 @@
 '''
 Object Detection Using HSV
 (c) 2021 Paolo Rommel Sanchez
-License GNU-GPL
+License BSD
 
 Transmits coordinates using ROS
 Code for multiple targets
 
 Reference:
 * DetectNet Methods: https://forums.developer.nvidia.com/t/detectnet-methods/184463/6
-
-Additional Functions:
-* You can use the size of the detection box later to make a variable rate sprayer (variable time that the sprayer is on)
-* Use left instead of centroid?
-
 '''
 
 from __future__ import print_function
@@ -35,8 +30,8 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 # camera parameters
-CAPTURE_WIDTH = 848
-CAPTURE_HEIGHT = 480
+CAPTURE_WIDTH = 1280
+CAPTURE_HEIGHT = 720
 
 def nothing():        # create an empty procedure that is being called by each trackbar object
     pass
@@ -124,7 +119,7 @@ class ImageCapture():
         # Display FPS counter
         # can be skipped as cpu-based image processing causes significant inferencing delay
         im = cv2.cvtColor(im.astype(np.uint8),cv2.COLOR_RGBA2BGR) # convert to numpy format
-        cv2.putText(im, "Effective Transmission Rate | {:.0f} Hz".format(fps), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 255, 0), 1, cv2.LINE_AA)
+        cv2.putText(im, "Effective Camera Speed | {:.0f} FPS".format(fps), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 255, 0), 1, cv2.LINE_AA)
         cv2.putText(im, "Inference Speed | {:.0f} FPS".format(self.net.GetNetworkFPS()), (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 255, 0), 1, cv2.LINE_AA)
 
         # Display the image

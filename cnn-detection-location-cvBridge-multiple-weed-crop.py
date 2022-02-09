@@ -33,9 +33,6 @@ from cv_bridge import CvBridge, CvBridgeError
 CAPTURE_WIDTH = 1280
 CAPTURE_HEIGHT = 720
 
-def nothing():        # create an empty procedure that is being called by each trackbar object
-    pass
-
 class ImageCapture():
 
     def __init__(self):

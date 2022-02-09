@@ -40,7 +40,7 @@ class ImageCapture():
 
     def __init__(self):
         
-        self.cap = jetson.utils.gstCamera(CAPTURE_WIDTH,CAPTURE_WIDTH,"/dev/video0")
+        self.cap = jetson.utils.gstCamera(CAPTURE_WIDTH,CAPTURE_HEIGHT,"/dev/video0")
         self.net = jetson.inference.detectNet(argv=['--model=/home/vision-module/jetson-inference/python/training/detection/ssd/models/plants/ssd-mobilenet.onnx', \
             '--labels=/home/vision-module/jetson-inference/python/training/detection/ssd/models/plants/labels.txt',
             '--input-blob=input_0',

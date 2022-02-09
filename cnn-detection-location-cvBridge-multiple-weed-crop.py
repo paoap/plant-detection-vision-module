@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Object Detection Using HSV
+Object Detection Using CNN
 (c) 2021 Paolo Rommel Sanchez
 License BSD
 
